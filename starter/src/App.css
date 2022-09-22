@@ -8,20 +8,26 @@ body {
 }
 body,
 .app {
-  background: white;
+  background: #e3f1f7;
 }
 
+
+select:hover {
+  opacity: 0;
+}
 /* main page */
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #5cb4fc;
   text-align: center;
 }
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
-  color: white;
+  color: black;
+  z-index: 999;
+  position:sticky;
 }
 
 .list-books-content {
@@ -40,7 +46,7 @@ body,
 }
 
 .bookshelf-title {
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #95cefd;
 }
 .bookshelf-books {
   text-align: center;
@@ -56,13 +62,26 @@ body,
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #2e7d32;
+  background: #5cb4fc;
   background-image: url("./icons/add.svg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 28px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition-property: background-image ;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.08, 0.79, 0.58, 1);
+  box-shadow: 0 3px 6px rgba(92, 7, 7, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   font-size: 0;
+}
+
+.open-search a:hover{
+  background: #abd4f8;
+  background-image: url("./icons/icons8-plus-96.png");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition-property: background-image ;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.08, 0.79, 0.58, 1);
 }
 
 /* search page */
@@ -74,7 +93,7 @@ body,
   left: 0;
   z-index: 5;
   display: flex;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 0 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.199), 0 0 6px rgba(0, 0, 0, 0.23);
 }
 .search-books-input-wrapper {
   flex: 1;
@@ -102,6 +121,13 @@ body,
   font-size: 0;
 }
 
+.close-search:hover{
+  background: #0000003f;
+  background-image: url("./icons/arrow-back.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 34px;
+}
 .search-books-results {
   padding: 80px 10px 20px;
 }
@@ -150,7 +176,7 @@ body,
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #60ac5d;
+  background: #5cb4fc;
   background-image: url("./icons/arrow-drop-down.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -175,3 +201,18 @@ body,
   text-align: center;
   font-size: 0.8em;
 }
+
+
+/* styling for disable any courser touches on h1, h2 */
+h1
+,h2,
+.disabled-option{
+  pointer-events: none;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+          -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none;/* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
