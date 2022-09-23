@@ -29,7 +29,7 @@ function App() {
     setInterval(() => {
       window.location.href = window.location.origin;
     }, 400); 
-
+    
     setUpdateState(!updatestate)
   };
 

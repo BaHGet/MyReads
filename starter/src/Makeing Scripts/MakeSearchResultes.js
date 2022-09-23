@@ -23,7 +23,7 @@ const HandleResult = ({result,  handleMoveToShelf, Shelf}) =>{
         if(result ==="No results"){
             setReturnvalue("No results");
         }
-        if(result.length !== 0 && typeof result == 'object'){
+        if(result.length !== 0 && typeof result == 'object'){ 
             setReturnvalue(
                     <ol className="books-grid">
                         {result.map(obj =>{
@@ -41,9 +41,13 @@ const HandleResult = ({result,  handleMoveToShelf, Shelf}) =>{
                                                 className="book-cover"
                                                 style={{
                                                 width: 128,
-                                                height: 193
+                                                height: 193,
+                                                backgroundSize:'128px',
+                                                backgroundRepeat:'no-repeat',
+                                                backgroundImage:
+                                                `url(https://islandpress.org/sites/default/files/default_book_cover_2015.jpg)`
                                                 }}
-                                                >No Iamge</div>
+                                                ></div>
                                             :
                                                 <div
                                                 className="book-cover"
@@ -68,18 +72,39 @@ const HandleResult = ({result,  handleMoveToShelf, Shelf}) =>{
                                                 </div>
                                                 :
                                                 <div className="book-shelf-changer">
-                                                    <select onChange={handleMoving} id={obj.id}>
-                                                        <option value="none" className="disabled-option">Move to... </option>
+                                                    <select onChange={handleMoving} id={obj.id} defaultValue="None">
+                                                        <option value="none" className="disabled-option" disabled>Move to... </option>
                                                         <option value="currentlyReading">Currently Reading</option>
                                                         <option value="wantToRead">Want to Read</option>
                                                         <option value="read">Read</option>
+                                                        <option value="None">None</option>
                                                     </select>
                                                 </div>
                                             }
                                         </div>
 
                                         <div className="book-title">{obj.title}</div>
-                                        <div className="book-authors">{obj.authors}</div>
+                                        
+                                                {obj.authors !== undefined ?
+                                                    <div className="book-authors">
+                                                        <h3 className="info-list">Authors:</h3>
+                                                        <ul className="info-list" >
+                                                            {obj.authors.map(
+                                                                author => {
+                                                                    return (
+                                                                    
+                                                                        <li key={author}>
+                                                                        {author}
+                                                                        </li>
+                                                                        
+                                                                    );
+                                                        })}
+                                                        </ul>
+                                                    </div>
+                                                    :
+                                                    'No Authors'
+                                                }
+                                            
                                     </div>
                                 </li>
                                 

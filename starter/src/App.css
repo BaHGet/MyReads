@@ -11,16 +11,13 @@ body,
   background: #e3f1f7;
 }
 
-
-select:hover {
-  opacity: 0;
-}
 /* main page */
 
 .list-books-title {
-  padding: 10px 0;
-  background: #5cb4fc;
+  padding: 10px 0px;
+  background: #235781;
   text-align: center;
+  width: 100%;
 }
 .list-books-title h1 {
   font-weight: 400;
@@ -35,13 +32,13 @@ select:hover {
   flex: 1;
 }
 
-.bookshelf {
-  padding: 0 10px 20px;
+.bookshelf{
+  padding: 0 55px 0px;
 }
 
 @media (min-width: 600px) {
   .bookshelf {
-    padding: 0 20px 40px;
+    padding: 0 55px 0px;
   }
 }
 
@@ -129,37 +126,44 @@ select:hover {
   background-size: 34px;
 }
 .search-books-results {
-  padding: 80px 10px 20px;
+  padding: 41px 10px 20px;
 }
 
 /* books grid */
 
 .books-grid {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
-
+  padding: 20px;
+  margin: 0px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-.books-grid li {
+/* .books-grid li {
   padding: 10px 15px;
   text-align: left;
-}
+} */
 
 .book {
   width: 140px;
+  margin:20px
 }
 .book-title,
-.book-authors {
+.book-authors,
+.book-details {
   font-size: 0.8em;
 }
 .book-title {
   margin-top: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  text-align: left;
+  line-height: 2em;
 }
-.book-authors {
-  color: #999;
+.book-authors , .book-details{
+  color: rgb(94, 92, 92);
 }
 
 .book-top {
@@ -176,7 +180,7 @@ select:hover {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #5cb4fc;
+  background: #235781;
   background-image: url("./icons/arrow-drop-down.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -216,3 +220,35 @@ h1
                 user-select: none;/* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
+.info-list{
+  text-align: left;
+  padding:0px ;
+  margin:0px;
+}
+ul.info-list{
+  text-align: left;
+  padding:0px ;
+  margin-top:0px;
+  margin-bottom: 0px;
+  margin-right: -272px;
+  margin-left: 6px;
+}
+
+.links a:link, .links a:visited {
+  color: rgb(94, 92, 92);
+  padding: 6px;
+  margin: 5px;
+  text-decoration: none;
+  border: 2px solid rgb(128, 128, 128);
+}
+
+.links a:hover, .links a:active {
+  color: rgb(94, 92, 92);
+  text-decoration: underline;
+  
+}
+
+.links{
+  margin-top: 10px;
+  margin-left: -15px;
+}

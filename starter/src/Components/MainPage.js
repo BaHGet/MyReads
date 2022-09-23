@@ -23,7 +23,6 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
       setBooks([...Shelf])
   }, [update, Shelf])
   
-
   return (
     <div className='app'>
     <div className="list-books">
@@ -48,9 +47,13 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                                 className="book-cover"
                                                 style={{
                                                 width: 128,
-                                                height: 193
+                                                height: 193,
+                                                backgroundSize:'128px',
+                                                backgroundRepeat:'no-repeat',
+                                                backgroundImage:
+                                                `url(https://islandpress.org/sites/default/files/default_book_cover_2015.jpg)`
                                                 }}
-                                                >No Iamge</div>
+                                                ></div>
                                             :
                                                 <div
                                                 className="book-cover"
@@ -64,7 +67,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                             }
                                             <div className="book-shelf-changer">
                                               <select defaultValue='currentlyReading' onChange={(e) => handleMoving(e, book)} id={book.id}>
-                                                <option value="none" className="disabled-option">Move to... </option>
+                                                <option value="none" className="disabled-option" disabled>Move to... </option>
                                                 <option value="currentlyReading" >✔  Currently Reading</option>
                                                 <option value="wantToRead">Want to Read</option>
                                                 <option value="read">Read</option>
@@ -72,8 +75,53 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                               </select>
                                             </div>
                                         </div>
-                                        <div className="book-title">{book.title}</div>
-                                        <div className="book-authors">{book.authors}</div>
+                                        <div className="book-title">
+                                          {book.title}
+                                        </div>
+                                        {book.authors !== undefined ?
+                                                    <div className="book-authors">
+                                                        <h3 className="info-list">Authors:</h3>
+                                                        <ul className="info-list" >
+                                                            {book.authors.map(
+                                                                author => {
+                                                                    return (
+                                                                    
+                                                                        <li key={author}>
+                                                                        {author}
+                                                                        </li>
+                                                                        
+                                                                    );
+                                                        })}
+                                                        </ul>
+                                                    </div>
+                                                    :
+                                                    <h3 className="info-list">No Authors</h3>
+                                                }
+                                        <div className="book-details">
+                                          <h3 className="info-list">Categories:</h3>
+                                          <ul className="info-list">
+                                            {book.categories.map(category =>{
+                                              return(<li key={category}>{category}</li>)
+                                            })}
+                                          </ul>
+                                        </div>
+                                        <div className="book-details">
+                                          <h3 className="info-list">{`${book.pageCount} Page`}</h3>
+                                          <h3 className="info-list">
+                                            {book.averageRating !== undefined ?
+                                                `Rate: ${book.averageRating}` 
+                                                :
+                                                `Rating: No Rates`
+                                              }
+                                          </h3>
+                                          <h3 className="info-list">
+                                            {book.ratingsCount !== undefined ? `${book.ratingsCount} Ratings` : ``}
+                                          </h3>
+                                        </div>
+                                        <div className="links">
+                                          <a href={book.canonicalVolumeLink} target="_blank" rel="noreferrer">Buy</a>
+                                          <a href={book.previewLink} target="_blank" rel="noreferrer">Preview</a>
+                                        </div>
                                     </div>
                                 </li>
                             )
@@ -102,9 +150,13 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                                 className="book-cover"
                                                 style={{
                                                 width: 128,
-                                                height: 193
+                                                height: 193,
+                                                backgroundSize:'128px',
+                                                backgroundRepeat:'no-repeat',
+                                                backgroundImage:
+                                                `url(https://islandpress.org/sites/default/files/default_book_cover_2015.jpg)`
                                                 }}
-                                                >No Iamge</div>
+                                                ></div>
                                             :
                                                 <div
                                                 className="book-cover"
@@ -118,7 +170,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                             }
                                             <div className="book-shelf-changer">
                                               <select defaultValue='wantToRead' onChange={(e) => handleMoving(e, book)} id={book.id} >
-                                                <option value="none" className="disabled-option">Move to... </option>
+                                                <option value="none" className="disabled-option" disabled>Move to... </option>
                                                 <option value="currentlyReading">Currently Reading</option>
                                                 <option value="wantToRead">✔  Want to Read</option>
                                                 <option value="read">Read</option>
@@ -127,7 +179,51 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                             </div>
                                         </div>
                                         <div className="book-title">{book.title}</div>
-                                        <div className="book-authors">{book.authors}</div>
+                                        
+                                        {book.authors !== undefined ?
+                                                    <div className="book-authors">
+                                                        <h3 className="info-list">Authors:</h3>
+                                                        <ul className="info-list" >
+                                                            {book.authors.map(
+                                                                author => {
+                                                                    return (
+                                                                    
+                                                                        <li key={author}>
+                                                                        {author}
+                                                                        </li>
+                                                                        
+                                                                    );
+                                                        })}
+                                                        </ul>
+                                                    </div>
+                                                    :
+                                                    <h3 className="info-list">No Authors</h3>
+                                                }
+                                        <div className="book-details">
+                                          <h3 className="info-list">Categories:</h3>
+                                          <ul className="info-list">
+                                            {book.categories.map(category =>{
+                                              return(<li key={category}>{category}</li>)
+                                            })}
+                                          </ul>
+                                        </div>
+                                        <div className="book-details">
+                                          <h3 className="info-list">{`${book.pageCount} Page`}</h3>
+                                          <h3 className="info-list">
+                                            {book.averageRating !== undefined ?
+                                                `Rate: ${book.averageRating}` 
+                                                :
+                                                `Rating: No Rates`
+                                              }
+                                          </h3>
+                                          <h3 className="info-list">
+                                            {book.ratingsCount !== undefined ? `${book.ratingsCount} Ratings` : ``}
+                                          </h3>
+                                        </div>
+                                        <div className="links">
+                                          <a href={book.canonicalVolumeLink} target="_blank" rel="noreferrer">Buy</a>
+                                          <a href={book.previewLink} target="_blank" rel="noreferrer">Preview</a>
+                                        </div>
                                     </div>
                                 </li>
                             )
@@ -156,9 +252,13 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                                 className="book-cover"
                                                 style={{
                                                 width: 128,
-                                                height: 193
+                                                height: 193,
+                                                backgroundSize:'128px',
+                                                backgroundRepeat:'no-repeat',
+                                                backgroundImage:
+                                                `url(https://islandpress.org/sites/default/files/default_book_cover_2015.jpg)`
                                                 }}
-                                                >No Iamge</div>
+                                                ></div>
                                             :
                                                 <div
                                                 className="book-cover"
@@ -172,7 +272,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                             }
                                             <div className="book-shelf-changer">
                                               <select defaultValue='read' onChange={(e) => handleMoving(e, book)} id={book.id}>
-                                                  <option value="none" className="disabled-option">Move to... </option>
+                                                  <option value="none" className="disabled-option" disabled>Move to... </option>
                                                   <option value="currentlyReading">Currently Reading</option>
                                                   <option value="wantToRead">Want to Read</option>
                                                   <option value="read" >✔  Read</option>
@@ -181,7 +281,50 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                             </div>
                                         </div>
                                         <div className="book-title">{book.title}</div>
-                                        <div className="book-authors">{book.authors}</div>
+                                        {book.authors !== undefined ?
+                                            <div className="book-authors">
+                                                <h3 className="info-list">Authors:</h3>
+                                                <ul className="info-list" >
+                                                    {book.authors.map(
+                                                        author => {
+                                                            return (
+                                                            
+                                                                <li key={author}>
+                                                                {author}
+                                                                </li>
+                                                                
+                                                            );
+                                                })}
+                                                </ul>
+                                            </div>
+                                            :
+                                            <h3 className="info-list">No Authors</h3>
+                                        }
+                                        <div className="book-details">
+                                          <h3 className="info-list">Categories:</h3>
+                                          <ul className="info-list">
+                                            {book.categories.map(category =>{
+                                              return(<li key={category}>{category}</li>)
+                                            })}
+                                          </ul>
+                                        </div>
+                                        <div className="book-details">
+                                          <h3 className="info-list">{`${book.pageCount} Page`}</h3>
+                                          <h3 className="info-list">
+                                            {book.averageRating !== undefined ?
+                                                `Rate: ${book.averageRating}` 
+                                                :
+                                                `Rating: No Rates`
+                                              }
+                                          </h3>
+                                          <h3 className="info-list">
+                                            {book.ratingsCount !== undefined ? `${book.ratingsCount} Ratings` : ``}
+                                          </h3>
+                                        </div>
+                                        <div className="links">
+                                          <a href={book.canonicalVolumeLink} target="_blank" rel="noreferrer">Buy</a>
+                                          <a href={book.previewLink} target="_blank" rel="noreferrer">Preview</a>
+                                        </div>
                                     </div>
                                 </li>
                             )
