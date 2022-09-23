@@ -82,35 +82,31 @@ const HandleResult = ({result,  handleMoveToShelf, Shelf}) =>{
                                                 </div>
                                             }
                                         </div>
-
-                                        <div className="book-title">{obj.title}</div>
-                                        
-                                                {obj.authors !== undefined ?
-                                                    <div className="book-authors">
-                                                        <h3 className="info-list">Authors:</h3>
-                                                        <ul className="info-list" >
-                                                            {obj.authors.map(
-                                                                author => {
-                                                                    return (
-                                                                    
-                                                                        <li key={author}>
-                                                                        {author}
-                                                                        </li>
-                                                                        
-                                                                    );
-                                                        })}
-                                                        </ul>
-                                                    </div>
-                                                    :
-                                                    'No Authors'
-                                                }
-                                            
+                                        <div className="book-title">
+                                            {obj.title}
+                                        </div>
+                                        {obj.authors !== undefined ?
+                                            <div className="book-authors">
+                                                <h3 className="info-list">Authors:</h3>
+                                                <ul className="info-list" >
+                                                    {obj.authors.map(
+                                                        author => {
+                                                            return (
+                                                            
+                                                                <li key={author}>
+                                                                {author}
+                                                                </li>
+                                                                
+                                                            );
+                                                })}
+                                                </ul>
+                                            </div>
+                                            :'No Authors'}
                                     </div>
                                 </li>
-                                
-                                )})}
+                        )})}
                     </ol>
-                );
+            );
         }
     },[result])
 
