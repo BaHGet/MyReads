@@ -33,12 +33,10 @@ function App() {
     }
 
     setInterval(() => {
-      
       if(!(window.location.href==='https://bahget.github.io/MyReads/')){
         window.location.href = './';}else{
           window.location.reload();
         }
-      console.log(window.location.href, window.location.origin)
     }, 400); 
     
     setUpdateState(!updatestate)
@@ -50,11 +48,11 @@ function App() {
 
 return (
     <Routes>
-      <Route exact path='/MyReads' element={<MainPage  
+      <Route exact path='/' element={<MainPage  
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     
-      <Route exact path='/MyReads/Search' element={
+      <Route exact path='/Search' element={
       <SearchPage handleMoveToShelf={handleMoveToShelf} Shelf={Shelf} />}/>  
     </Routes>
   );
