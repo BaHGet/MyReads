@@ -48,7 +48,7 @@ function App() {
 
 return (
     <Routes>
-      <Route exact path='/MyReads' element={<MainPage  
+      <Route exact path='/' element={<MainPage  
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     
