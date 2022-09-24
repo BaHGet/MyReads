@@ -35,7 +35,7 @@ function App() {
     setInterval(() => {
       
       if(!(window.location.href==='https://bahget.github.io/MyReads/')){
-        window.location.href = './MyReads';}else{
+        window.location.href = './';}else{
           window.location.reload();
         }
       console.log(window.location.href, window.location.origin)
@@ -54,7 +54,7 @@ return (
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     
-      <Route exact path='/Search/' element={
+      <Route exact path='/MyReads/Search' element={
       <SearchPage handleMoveToShelf={handleMoveToShelf} Shelf={Shelf} />}/>  
     </Routes>
   );
