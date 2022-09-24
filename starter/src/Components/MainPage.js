@@ -350,7 +350,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
 
     </div>
     <div className='open-search'>
-      <Link to="/Search" >Add a book </Link>
+      <Link to="/MyReads/Search" >Add a book </Link>
     </div>
     </div>
   );

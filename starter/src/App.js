@@ -52,7 +52,7 @@ return (
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     
-      <Route exact path='/Search' element={
+      <Route exact path='/MyReads/Search' element={
       <SearchPage handleMoveToShelf={handleMoveToShelf} Shelf={Shelf} />}/>  
     </Routes>
   );
