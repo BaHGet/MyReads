@@ -34,7 +34,7 @@ function App() {
 
     setInterval(() => {
       
-      window.location.href = 'MyReads/';
+      window.location.href = './';
       console.log(window.location.href, window.location.origin)
     }, 400); 
     
@@ -51,7 +51,7 @@ return (
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     
-      <Route exact path='/Search' element={
+      <Route exact path='/MyReads/Search' element={
       <SearchPage handleMoveToShelf={handleMoveToShelf} Shelf={Shelf} />}/>  
     </Routes>
   );
