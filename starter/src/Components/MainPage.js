@@ -39,7 +39,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                         books.map((book) => {
                           if(book.shelf === 'currentlyReading'){
                             return(
-                              <li key={book.id}>
+                              <li key={book.id} className="book-in-shelf">
                                     <div className="book">
                                         <div className="book-top">
                                         {book.imageLinks === undefined ?
@@ -146,7 +146,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                         books.map((book) => {
                           if(book.shelf === 'wantToRead'){
                             return(
-                              <li key={book.id}>
+                              <li key={book.id} className="book-in-shelf">
                                     <div className="book">
                                         <div className="book-top">
                                         {book.imageLinks === undefined ?
@@ -203,14 +203,18 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                                     :
                                                     <h3 className="info-list">No Authors</h3>
                                                 }
-                                        <div className="book-details">
-                                          <h3 className="info-list">Categories:</h3>
-                                          <ul className="info-list">
-                                            {book.categories.map(category =>{
-                                              return(<li key={category}>{category}</li>)
-                                            })}
-                                          </ul>
-                                        </div>
+                                        {book.categories !== undefined ?
+                                                  <div className="book-details">
+                                                    <h3 className="info-list">Categories:</h3>
+                                                    <ul className="info-list">
+                                                      {book.categories.map(category =>{
+                                                        return(<li key={category}>{category}</li>)
+                                                      })}
+                                                    </ul>
+                                                  </div>
+                                                    :
+                                                    <h3 className="info-list">No Categories</h3>
+                                                }
                                         <div className="book-details">
                                           <h3 className="info-list">{`${book.pageCount} Page`}</h3>
                                           <h3 className="info-list">
@@ -248,7 +252,7 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                         books.map((book) => {
                           if(book.shelf === 'read'){
                             return(
-                              <li key={book.id}>
+                              <li key={book.id} className="book-in-shelf">
                                     <div className="book">
                                         <div className="book-top">
                                         {book.imageLinks === undefined ?
@@ -304,14 +308,18 @@ const BookShelf = ({Shelf, handleMoveToShelf}) => {
                                             :
                                             <h3 className="info-list">No Authors</h3>
                                         }
-                                        <div className="book-details">
-                                          <h3 className="info-list">Categories:</h3>
-                                          <ul className="info-list">
-                                            {book.categories.map(category =>{
-                                              return(<li key={category}>{category}</li>)
-                                            })}
-                                          </ul>
-                                        </div>
+                                        {book.categories !== undefined ?
+                                                  <div className="book-details">
+                                                    <h3 className="info-list">Categories:</h3>
+                                                    <ul className="info-list">
+                                                      {book.categories.map(category =>{
+                                                        return(<li key={category}>{category}</li>)
+                                                      })}
+                                                    </ul>
+                                                  </div>
+                                                    :
+                                                    <h3 className="info-list">No Categories</h3>
+                                                }
                                         <div className="book-details">
                                           <h3 className="info-list">{`${book.pageCount} Page`}</h3>
                                           <h3 className="info-list">

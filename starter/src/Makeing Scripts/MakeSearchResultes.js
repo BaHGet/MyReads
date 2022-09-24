@@ -33,7 +33,7 @@ const HandleResult = ({result,  handleMoveToShelf, Shelf}) =>{
                                 }
                             })
                             return(
-                                <li key={obj.id}>
+                                <li key={obj.id} className="book-in-search">
                                     <div className="book">
                                         <div className="book-top">
                                             {obj.imageLinks === undefined ?

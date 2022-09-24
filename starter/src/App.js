@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import "./App.css";
 import {Route, Routes} from 'react-router-dom'
 import MainPage from "./Components/MainPage";
@@ -9,7 +10,12 @@ function App() {
   const [Shelf, setShelf] = useState(['']);
   const [updatestate, setUpdateState] = useState(true);
   
-
+  /* window.onload = () => {
+    const nav = document.querySelector(".list-books-title");
+    const Width = screen.width;
+    nav.style = `width: ${Width}px`;
+    console.log(nav.style.width,Width)
+  } */
   const handleMoveToShelf = (book, shelf) =>{
 
     if(book.shelf){
@@ -28,7 +34,7 @@ function App() {
 
     setInterval(() => {
       console.log(window.location.href, window.location.origin)
-      window.location.href = 'MyReads/';
+      window.location.href = '/';
     }, 400); 
     
     setUpdateState(!updatestate)
@@ -40,7 +46,7 @@ function App() {
 
 return (
     <Routes>
-      <Route exact path='MyReads/' element={<MainPage  
+      <Route exact path='/' element={<MainPage  
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     

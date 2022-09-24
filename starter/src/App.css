@@ -18,6 +18,8 @@ body,
   background: #235781;
   text-align: center;
   width: 100%;
+  left: 0;
+  right: 0;
 }
 .list-books-title h1 {
   font-weight: 400;
@@ -36,19 +38,26 @@ body,
   padding: 0 55px 0px;
 }
 
+
+
 @media (min-width: 600px) {
   .bookshelf {
     padding: 0 55px 0px;
   }
+
 }
+
+
 
 .bookshelf-title {
   border-bottom: 1px solid #95cefd;
 }
 .bookshelf-books {
-  text-align: center;
+  text-align: left;
 }
 
+
+/* add sign */
 .open-search {
   position: fixed;
   right: 25px;
@@ -81,18 +90,25 @@ body,
   transition-timing-function: cubic-bezier(0.08, 0.79, 0.58, 1);
 }
 
-/* search page */
+.list-books{
 
+  overflow: hidden;
+
+}
+
+/* search page */
 .search-books-bar {
   position: fixed;
   width: 100%;
   top: 0;
-  left: 0;
   z-index: 5;
   display: flex;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.199), 0 0 6px rgba(0, 0, 0, 0.23);
+  left: 0;
+  right: 0;
 }
 .search-books-input-wrapper {
+  width: 100%;
   flex: 1;
   background: #e9e;
 }
@@ -129,6 +145,9 @@ body,
   padding: 41px 10px 20px;
 }
 
+
+
+
 /* books grid */
 
 .books-grid {
@@ -139,10 +158,6 @@ body,
   justify-content: center;
   flex-wrap: wrap;
 }
-/* .books-grid li {
-  padding: 10px 15px;
-  text-align: left;
-} */
 
 .book {
   width: 140px;
@@ -169,6 +184,7 @@ body,
 .book-top {
   position: relative;
   height: 200px;
+  width: 100%;
   display: flex;
   align-items: flex-end;
 }
@@ -193,7 +209,6 @@ body,
   opacity: 0;
   cursor: pointer;
 }
-
 /* book cover */
 
 .book-cover {
@@ -205,6 +220,8 @@ body,
   text-align: center;
   font-size: 0.8em;
 }
+
+
 
 
 /* styling for disable any courser touches on h1, h2 */
@@ -251,4 +268,52 @@ ul.info-list{
 .links{
   margin-top: 10px;
   margin-left: -15px;
+}
+
+@media (max-width: 700px) {
+  html{
+    width: 100%;
+  }
+  body{
+
+    margin: 0;
+
+  }
+  .list-books-title{
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+  .bookshelf{
+    padding: 0;
+  }
+  .book-title,
+  .book-authors,
+  .book-details,
+  a,li,ul, h3{
+  font-size:12px;
+  }
+  li.book-in-search>div>div>ul.info-list > li{
+    font-size: 10px;
+  }
+  li.book-in-search>.book{
+    margin: 0;
+    width: 77px;
+  }
+  li.book-in-search>div>div>.book-shelf-changer{
+    width: 27px;
+    height: 27px;
+  }
+  li.book-in-search>div>div>.book-cover{
+    width: 100px !important;
+    height: 190px!important;
+    -webkit-box-shadow: -19px 7px 21px 5px rgba(0,0,0,0.33);
+    -moz-box-shadow: -19px 7px 21px 5px rgba(0,0,0,0.33);
+    box-shadow: -19px 7px 21px 5px rgba(0,0,0,0.33);
+  }
+  .search-books-bar{
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
 }
