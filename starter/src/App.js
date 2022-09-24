@@ -44,7 +44,7 @@ return (
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
     
-      <Route exact path='MyReads/Search' element={
+      <Route exact path='/Search' element={
       <SearchPage handleMoveToShelf={handleMoveToShelf} Shelf={Shelf} />}/>  
     </Routes>
   );
