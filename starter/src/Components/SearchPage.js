@@ -35,7 +35,7 @@ const SearchPage = ({handleMoveToShelf, Shelf}) => {
     return(
         <div className="search-books">
             <div className="search-books-bar">
-                <Link to="./MyReads" className="close-search">Close</Link>
+                <Link to="./" className="close-search">Close</Link>
                 <div className="search-books-input-wrapper">
                     <input
                     type="text"
