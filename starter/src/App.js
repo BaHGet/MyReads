@@ -33,8 +33,9 @@ function App() {
     }
 
     setInterval(() => {
+      
+      window.location.href = 'MyReads/';
       console.log(window.location.href, window.location.origin)
-      window.location.href = '/';
     }, 400); 
     
     setUpdateState(!updatestate)
