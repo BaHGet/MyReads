@@ -34,7 +34,9 @@ function App() {
 
     setInterval(() => {
       
-      window.location.href = 'MyReads/';
+      if(!(window.location.href==='https://bahget.github.io/MyReads/')){
+        window.location.href = 'MyReads';
+      }
       console.log(window.location.href, window.location.origin)
     }, 400); 
     
