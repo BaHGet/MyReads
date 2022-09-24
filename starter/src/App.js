@@ -27,7 +27,8 @@ function App() {
     }
 
     setInterval(() => {
-      window.location.href = window.location.origin;
+      console.log(window.location.href, window.location.origin)
+      window.location.href = 'MyReads/';
     }, 400); 
     
     setUpdateState(!updatestate)
@@ -39,11 +40,11 @@ function App() {
 
 return (
     <Routes>
-      <Route exact path="/" element={<MainPage  
+      <Route exact path='MyReads/' element={<MainPage  
       Shelf={Shelf} handleMoveToShelf={handleMoveToShelf}
       />}/>
-      
-      <Route exact path="/Search" element={
+    
+      <Route exact path='MyReads/Search' element={
       <SearchPage handleMoveToShelf={handleMoveToShelf} Shelf={Shelf} />}/>  
     </Routes>
   );
